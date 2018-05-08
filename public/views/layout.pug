@@ -1,0 +1,52 @@
+doctype html
+// Copyright © 2018 Martin Kondor
+html(lang='en')
+  head
+    title= title
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(name='keywords', content='epollostories,story,stories,users,writing,write,writers,storyline,new storyline')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='Live in what you read. Get in the story. Decide on what to do. Write new story threads for other authors stories, or write you own.')
+    link(rel='icon', href='/images/logo-min.png')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(defer='', src='https://use.fontawesome.com/releases/v5.0.8/js/all.js')
+    link(href='https://fonts.googleapis.com/css?family=Roboto|Merriweather|Merriweather:900', rel='stylesheet')
+    link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js")
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css', rel='stylesheet', type='text/css')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js")
+    script(src="/javascripts/script.js")
+    link(href='/stylesheets/style.css', rel='stylesheet', type='text/css')
+    script#cookieinfo(type='text/javascript', src='//cookieinfoscript.com/js/cookieinfo.min.js')
+  body(style="overflow:hidden;")
+    nav.navbar.navbar-expand-lg.fixed-top.navbar-dark.bg-dark
+      a.main-title(href='/') Epollo 
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          if user
+            li.nav-item.dropdown
+              a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')= user.name.first + ' ' + user.name.last
+              .dropdown-menu(aria-labelledby='navbarDropdown')
+                - var userLink = user.permalink;
+                a.dropdown-item(href='/users/' + userLink)= user.username
+                a.dropdown-item(href='#', style="cursor:not-allowed;").disabled Settings
+                .dropdown-divider
+                a.dropdown-item(href='/signout') Sign out
+            li.nav-item
+              a.nav-link(href='/newstory') Create a new story
+          if !user
+            li.nav-item
+              a.nav-link(href='/signin') Sign in
+          li.nav-item.dropdown
+            a#navbarReadDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Read
+            .dropdown-menu(aria-labelledby='navbarReadDropdown')
+              a.dropdown-item(href="/stories") Browse
+              a.dropdown-item(href="/users") Authors
+        form(action="/stories/search", method="post").form-inline.my-2.my-lg-0
+          input.form-control.mr-sm-2.dark-input(type='search', name="s", placeholder="type here ...", aria-label='Search')
+          button.btn.btn-outline-secondary.my-2.my-sm-0(type='submit') Search
+  div(style="margin-top:52px;")
+    block content

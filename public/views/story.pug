@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  link(href='/stylesheets/books.css', rel='stylesheet', type='text/css')
+  .read-div
+    //a.text-muted.text-left(href="#", onclick='history.back();')
+      i.fas.fa-arrow-left
+      |  Back
+    .text-left(style="margin-top:10px;")
+      p.h4.font-weight-bold= title
+      if story.previous
+        nav(aria-label="breadcrumb")
+          ol(class="breadcrumb")
+            each p in story.previous
+              li(class="breadcrumb-item")
+                a(href="/stories/" + p.permalink)= p.title
+      i.text-muted.small Author:  
+        span
+          a(href='/users/' + story.author.permalink)= story.author.name.first + ' ' + story.author.name.last
+          |  | 
+          span= story.date
+          |  | 
+          span= story.genre
+    p.text-for-reading= story.text
+    .row.text-center(style='margin-top:15px;margin-bottom:0px;')
+      .col-sm
+        a#navbarShareDropdown.nav-link.dropdown-toggle(href='#', role='button', title="Share", data-toggle='dropdown', aria-haspopup='false', aria-expanded='true')
+          i.share-buttons.far.fa-share-square
+        .dropdown-menu(aria-labelledby='navbarShareDropdown')
+          a.dropdown-item(target="_blank", href="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.php%3Fkid_directed_site%3D0%26u%3Dhttps%253A%252F%252Fepollo.herokuapp.com%252Fstories%252F"+story.permalink+"%26display%3Dpopup%26ref%3Dplugin%26src%3Dshare_button&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Freturn%2Fclose%3Ferror_code%3D4201%26error_message%3DUser%2Bcanceled%2Bthe%2BDialog%2Bflow%23_%3D_&display=popup&locale=hu_HU&kid_directed_site=0")
+            i.share-buttons.fab.fa-facebook
+            | Facebook
+          a.dropdown-item(target="_blank", href='https://twitter.com/intent/tweet?text=I%20found%20an%20awesome%20story%20on%20Epollo:%20' + 'https://epollo.herokuapp.com/stories/' + story.permalink)
+            i.share-buttons.fab.fa-twitter
+            | Twitter
+    .text-center
+      a.btn.btn-block.btn-outline-dark(style="margin-bottom:10px;", href='/stories/' + story.permalink + '/newthread') Continue it
+    if story.nextThreads
+      each t in story.nextThreads
+        .text-center
+          a.btn.btn-block.btn-outline-dark(style="margin-bottom:10px;", href='/stories/' + t.permalink)= t.title

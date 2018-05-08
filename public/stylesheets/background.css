@@ -1,0 +1,11 @@
+body {
+  background: url("https://source.unsplash.com/1920x1280/?book");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 920px) {
+  body {
+    background: url("https://source.unsplash.com/1280x1920/?book");
+  }
+}

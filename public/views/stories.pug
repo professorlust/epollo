@@ -1,0 +1,18 @@
+extend layout
+
+block content
+  link(href='/stylesheets/books.css', rel='stylesheet', type='text/css')
+  .jumbotron
+    p.h3.font-weight-bold.text-center Browse
+    .bookself
+      ul.row.text-center.list-inline
+        if stories
+          each story in stories
+            .col-sm
+              a.book-link(href='/stories/' + story.permalink)
+                li.book(style="margin-bottom:120px;")
+                  .c-book(style="overflow-wrap:break-word;background-color:" + story.color + ";")
+                    p(style="font-size:14px;")= story.author.name.first + ' ' + story.author.name.last
+                    strong= story.title
+                    p(style="font-size:12px;")
+                      span= story.genre

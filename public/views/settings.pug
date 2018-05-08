@@ -1,0 +1,38 @@
+extend layout
+
+block content
+  .jumbotron
+    if errors
+      each msg in errors
+        h6.alert.alert-warning.text-center= msg.msg
+    .row
+      .col-sm-6
+        p.text-center.h3.font-weight-bold Uploaded writings
+        br
+        .text-center
+          span.h4.text-muted Stories: 
+          select(name="stories")
+            if user.stories
+              each s in user.stories
+                option(value= s.permalink)= s.title
+          | 
+          a(href="/settings/editstory")
+            i(title="Edit").fas.fa-pencil-alt
+        br
+        .text-center
+          span.h4.text-muted Threads: 
+          select(name="threads")
+            if user.threads
+              each t in user.threads
+                option(value= t.permalink)= t.title
+          | 
+          a(href="/settings/editstory")
+            i(title="Edit").fas.fa-pencil-alt
+      .col-sm-6
+        p.text-center.h3.font-weight-bold Account Settings
+        .input-form
+          span.h4.text-muted Fullname: 
+          input.form-control(type="text", name="fullname", value=user.name.first + ' ' + user.name.last)
+    .text-center
+      br
+      button.btn.btn-primary(type="submit") Save settings

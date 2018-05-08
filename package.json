@@ -1,0 +1,36 @@
+{
+  "name": "epollo",
+  "version": "1.2.0",
+  "description": "Epollo is free to use site, where you can both read, and write stories. This page allows you to participate in the story by writing new storylines.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinKondor/epollo.git"
+  },
+  "author": "Martin Kondor",
+  "license": "Copyright © 2018 Martin Kondor",
+  "bugs": {
+    "url": "https://github.com/MartinKondor/epollo/issues"
+  },
+  "homepage": "https://github.com/MartinKondor/epollo#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.1.2",
+    "mongoose": "^5.0.11",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.3"
+  }
+}

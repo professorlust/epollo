@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .jumbotron
+    p.text-center.h3.font-weight-bold Continue 
+      span
+        a.text-dark(href="/stories/" + story.permalink, target="_blank")= story.title
+    button.btn.btn-block.btn-outline-dark(type="button" data-toggle="collapse" data-target="#storyTextCollapse" aria-expanded="false" aria-controls="storyTextCollapse") Show text
+    #storyTextCollapse.collapse.multi-collapse
+      .card.card-body
+        p.text-left.text-for-reading(style="margin:0!important;")= story.text
+    br
+    form.story-input(method="post", action="/stories/" + story.permalink + "/newthread")
+      if errors
+        each msg in errors
+          h6.alert.alert-danger= msg.msg
+      .row.text-left
+        .col-sm-3
+          p.h4 Title of your line: 
+        .col-sm-9
+          input.form-control(name="stitle", type='text', placeholder='Give it a short and apposite name.', required)
+      .row
+        .col-sm-12
+          textarea.form-control(name="text", rows='10', placeholder="If you want threads from others it's recommended to write a shorter instead of a long story.", required)
+      .row.text-center
+        .col-sm-12
+          input.form-control(name="genres", type="text", placeholder="Add genres separated with comma", required)
+          br
+          label.text-muted Choose a color that best suits the line (this will be the color of the button)
+            br
+            input(name="color", type="color")
+          br
+          button.btn.btn-info(type='submit') Submit story  

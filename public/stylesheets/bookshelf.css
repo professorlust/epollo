@@ -1,0 +1,256 @@
+/*Libary starts here//////////////////////////////////////*/
+/*Vertical book what translates into a horizontal book*/
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+
+@keyframes enhancement {
+  0% {
+    width: 42px;
+    height: 187px;
+  }
+  100% {
+    width: 115px;
+    height: 187px;
+  }
+}
+
+@keyframes enhancement-out {
+  0% {
+    width: 115px;
+    height: 187px;
+  }
+  100% {
+    width: 42px;
+    height: 187px;
+  }
+}
+
+@keyframes enhancement-text {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes enhancement-text-out {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+.v-book {
+  width: 42px;
+  height: 187px;
+  background-color: #963634;
+  color: #F4F4F4 !important;
+  white-space: nowrap;
+  margin: 15px 5px 1px 5px;
+  padding-right: 2px;
+  padding-left: 2px;
+  text-align: center;
+  animation-name: enhancement-out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  box-shadow: inset 0 0 14px #373737;
+}
+
+.v-book:hover {
+  animation-name: enhancement;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.v-book .book-text, .v-book .book-author {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-top: 14px;
+  transform: rotate(90deg);
+  position: relative;
+}
+
+.v-book .book-text {
+  animation-name: enhancement-text-out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.v-book:hover .book-text {
+  animation-name: enhancement-text;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.v-book .book-other {
+  display: none;
+}
+
+.v-book:hover .book-other {
+  display: block;
+  animation-name: enhancement-text;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+/*Horizontal book*/
+.h-book {
+  width: 115px;
+  height: 177px;
+  background-color: white;
+  white-space: nowrap;
+  margin: 15px 1px 1px 1px;
+  box-shadow: inset 0 0 7px #373737;
+}
+
+.h-book-wide {
+  width: 125px;
+  height: 177px;
+  background-color: blue;
+  white-space: nowrap;
+  margin: 15px 2px 2px 1px;
+}
+
+/*Style items book*/
+.bookself {
+  background: url("../images/bg-wood.png");
+  padding: 15px 15px 1px 15px;
+}
+
+.classic-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 16px;
+}
+
+.bookself a, .bookself a:hover{
+  display: inline-block !important;
+  text-decoration: none;
+  color: inherit;
+}
+
+.book-author {
+  font-family: Georgia, serif;
+  font-size: 14px;
+}
+
+@keyframes enh-paper {
+  0% {
+    width: 42px;
+    height: 187px;
+  }
+  100% {
+    width: 115px;
+    height: 187px;
+  }
+}
+
+@keyframes enh-paper-out {
+  0% {
+    width: 115px;
+    height: 187px;
+  }
+  100% {
+    width: 42px;
+    height: 187px;
+  }
+}
+
+@keyframes enh-paper-text {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes enh-paper-text-out {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+.thin-paper {
+  background-color: #F8ECC2;
+  background: url('/images/paper.jpg');
+  white-space: nowrap;
+  padding-top: 10px;
+  box-shadow: inset 0 0 7px #373737;
+  margin: 15px 5px 1px 5px;
+  animation-name: enh-paper-out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.thin-paper:hover {
+  animation-name: enh-paper;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.thin-paper .paper-text {
+  margin-top: 7px;
+  font-weight: bold;
+  animation-name: enh-paper-text-out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.thin-paper:hover .paper-text {
+  animation-name: enh-paper-text;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.wide-paper {
+  width: 81px;
+  height: 122px;
+  background-color: #F8ECC2;
+  background: url('/images/paper.jpg');
+  white-space: nowrap;
+  padding-top: 10px;
+  margin: 15px 1px 1px 1px;
+  box-shadow: inset 0 0 7px #373737;
+}
+
+.paper-text {
+  font-size: 15px;
+  color: #323237;
+  font-family: Georgia, serif;
+}

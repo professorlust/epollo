@@ -1,0 +1,29 @@
+extend layout
+
+block content
+  link(rel="stylesheet", type="text/css", href="/stylesheets/background.css")
+  .jumbotron.input-form.text-center
+    form.forms(method='post' action='/signup')
+      h1.h2.font-weight-bold= title
+      if errors
+        each msg in errors
+          h6.alert.alert-danger= msg.msg
+      label.sr-only(for='inputUsername') Username
+      input#inputUsername.form-control(type='text' placeholder='Username' name='username' required='')
+      .input-group(style="margin-bottom:8px;")
+        .input-group-prepend
+          span.input-group-text(id='') Full name
+        input.form-control(type='text' placeholder='Firstname' name='firstname' required='' autofocus='')
+        input.form-control(type='text' placeholder='Lastname' name='lastname' required='')
+      label.sr-only(for='inputEmail') Email address
+      input#inputEmail.form-control(type='email' placeholder='Email address' name='email' required='')
+      label.sr-only(for='inputPassword') Password
+      input#inputPassword.form-control(type='password' placeholder='Password' name='password' required='')
+      label.sr-only(for='inputPassword2') Password again
+      input#inputPassword2.form-control(type='password' placeholder='Password again' name='password2' required='')
+      br
+      a.text-info(href='signin') I have an account
+      p.text-muted By registration you accept our 
+        a.text-info(href='info') user agreement.
+      button.btn.btn-lg.btn-primary.btn-block(type='submit')= title
+    

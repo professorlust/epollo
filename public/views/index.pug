@@ -1,0 +1,82 @@
+extend layout
+
+block content
+  #carouselIndicators.carousel.slide(data-ride='carousel')
+    ol.carousel-indicators
+      li.active(data-target='#carouselIndicators', data-slide-to='0')
+      li(data-target='#carouselIndicators', data-slide-to='1')
+      li(data-target='#carouselIndicators', data-slide-to='2')
+    .carousel-inner
+      .carousel-item.active
+        img.d-block.w-100(src='/images/img01.png')
+        .carousel-caption.d-none.d-md-block.text-right
+          h2 Write a new storyline for the story you read
+          h4(style="padding-left:33%;") Write new storylines to continue any story as you want
+          a.btn.btn-primary(href="signup") Learn more
+      .carousel-item
+        img.d-block.w-100(src='/images/img02.png')
+        .carousel-caption.d-none.d-md-block.text-right
+          h2 Read stories, decide on where to continue it
+          h4(style="padding-left:33%;") Choose a storyline button and countinue reading, or write your own line
+          a.btn.btn-primary(href="stories") Start reading
+      .carousel-item
+        img.d-block.w-100(src='/images/writer-bg.jpg')
+        .carousel-caption.d-none.d-md-block.text-right
+          h2 Read or write, unleash your creativity!
+          h4(style="padding-left:33%;") Write fictions or non fictions, both are welcomed and can be continued by other users
+          a.btn.btn-primary(href="signup") Join us
+    a.carousel-control-prev(href='#carouselIndicators', role='button', data-slide='prev')
+      span.carousel-control-prev-icon(aria-hidden='true')
+      span.sr-only Previous
+    a.carousel-control-next(href='#carouselIndicators', role='button', data-slide='next')
+      span.carousel-control-next-icon(aria-hidden='true')
+      span.sr-only Next
+  .container
+    .row.text-center.jumbotron
+      .col-lg-4
+        h2 For anyone
+        p This site is for anyone, you can read, write and continue any story. Share and wait for others creating new storilines for your work, this can give you creativity and new ideas.
+        p
+          a.btn.btn-secondary(href='info', role='button') View details »
+      .col-lg-4
+        h2 Safe
+        p Anything you share here remains yours, you just give the users and the site of Epollo the right to post it out and bring new ideas into your work, even the new storylines will be yours.
+        p
+          a.btn.btn-secondary(href='info', role='button') View details »
+      .col-lg-4
+        h2 Useful
+        p Your experimental experience in sience can also be shared, others can continue it and add new experiences, but the discovery remains yours.
+        p
+          a.btn.btn-secondary(href='info', role='button') View details »
+    hr
+    .row
+      .col-md-7
+        h2.font-weight-bold
+          | About us
+          br
+        p.h5 Epollo is free to use site, where you can both read, and write stories.
+          | The site is made for improving your creativity
+          | by allowing you to participate in any story by writing new storylines.
+    hr
+    .row
+      .col-md-7.push-md-5
+        h2.font-weight-bold
+          | About you 
+          br
+        p.h5 You can be anyone, you can work at any field, Epollo is useful for you, here you can find entetaining stories or mean sience texts what can make you think more creative or smart.
+    hr
+    .row
+      .col-md-7
+        h2.font-weight-bold
+          | Free, No adds, No spam
+          br
+        p.h5 We are tryng to make Epollo as good and entetaining as possible, it is a lot of hard work and we do not want anything from you, no adds, no spam emails, no data collection for selling it to third party companies, we want nothing from you. Enjoy it.
+    hr
+    footer
+      p.float-right
+        a(href='#') Back to top
+      p
+        | © 2018 Martin Kondor · 
+        a(href='info') Content Policy
+        |  · 
+        a(href='info') Terms

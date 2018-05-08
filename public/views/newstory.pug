@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .jumbotron
+    form.story-input(method="post", action="newstory")
+      if errors
+        each msg in errors
+          h6.alert.alert-danger= msg.msg
+      .row.text-center
+        .col-sm-12
+          p.h3.font-weight-bold Create a new Story
+          hr
+      .row.text-left
+        .col-sm-2
+          p.h4 Title: 
+        .col-sm-10
+          input.form-control(name="stitle", type='text', placeholder='Give it a short and apposite name.', required)
+      .row
+        .col-sm-12
+          textarea.form-control(name="text", rows='10', placeholder="If you want threads from others it's recommended to write a shorter instead of a long story.", required)
+      .row.text-center
+        .col-sm-12
+          input.form-control(name="genres", type="text", placeholder="Add genres separated with comma", required)
+          br
+          label.text-muted Choose a color that best suits the story (this will be the cover of the book)
+            br
+            input(name="color", type="color", value="#707070")
+          br
+          button.btn.btn-info(type='submit') Submit story
