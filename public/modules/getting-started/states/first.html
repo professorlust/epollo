@@ -1,0 +1,34 @@
+<section id="first" class="text-white bg-dark"
+  style='margin:0;padding:20px;height:120vh;background:blue;background:radial-gradient(#72408D,#58167D);'>
+  <div class="text-center animated zoomIn">
+    <h1 class="font-weight-bold h1">So, you want to be a part of our community?<br>Awesome!</h1>
+
+    <p class="h4 mt-5">Tell us your first name</p>
+    <form name="formfirst" class="input-group">
+      <input class="form-control input-form" type="text" name="firstname" ng-model="firstname" value="" autocomplete="off" required>
+    </form>
+
+    <div class="animated bounceIn" ng-show="isFirstnameValid()">
+      <p class="h4 mt-5 mb-0">... last name</p>
+      <form name="formlast" class="input-group">
+        <input class="form-control input-form" type="text" name="lastname" ng-model="lastname" value="" autocomplete="off" required>
+      </form>
+    </div>
+
+    <div class="animated bounceInRight" ng-show="isLastnameValid()">
+      <p class="h4 mt-5 mb-0">and your email.</p>
+      <form name="formemail" class="input-group">
+        <input class="form-control input-form" type="email" name="email" ng-model="email" value="" autocomplete="off" required>
+      </form>
+    </div>
+
+    <div class="animated bounceInLeft" ng-show="isLastnameValid() && isFirstnameValid() && isEmailValid()">
+      <p class="h4 mt-5 mb-1">By continuing you accept our
+        <a href="info">user agreement and policies.</a>
+      </p>
+      <button class="animated fadeIn btn btn-success" ng-click="acceptedAggreement()" type="button" name="button">Continue</button>
+    </div>
+    <div ng-show="isLastnameValid() && isFirstnameValid() && isEmailValid() && acceptedAggreement()" ui-view></div>
+  </div>
+
+</section>

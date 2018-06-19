@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  link(rel='stylesheet', type='text/css', href='/stylesheets/background.css')
+  .jumbotron.input-form.text-center
+    form(method='post' action='/signin')
+        h1.h1.font-weight-bold= title
+        if errors
+          each msg in errors
+            h6.alert.alert-danger= msg.msg
+        label.sr-only(for='inputUsername') Username
+        input#inputUsername.form-control(type='text' placeholder='Username' name='username' required='' autofocus='')
+        label.sr-only(for='inputPassword') Password
+        input#inputPassword.form-control(type='password' placeholder='Password' name='password' required='')
+        .checkbox.mb-3
+          label
+            input(type='checkbox' name='rememberMe' value='remember-me')
+            |  Remember me
+        span Don't have an account? 
+          a.text-info(href='signup') Sign up
+        br
+        br
+        button.btn.btn-lg.btn-primary.btn-block(type='submit')= title
+    

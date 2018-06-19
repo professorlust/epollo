@@ -1,0 +1,20 @@
+extend layout
+
+block content
+  .row.text-center.info-text
+    .col-sm-12
+      p.bigger-sub-titles= title
+      hr
+  .row.info-text.text-left
+    .col-sm-2
+      p.sub-titles.labels Title: 
+    .col-sm-10
+      input#story-title.form-control(type='text', value=et, placeholder='Give it a short and apposite name.', disabled='')
+  .row.info-text
+    .col-sm-12
+      textarea#story-text.form-control(rows='10', placeholder='Your original short story goes here... If you want threads from others it's recommended to write a shorter instead of a long story.')= edittext
+  .row.text-center.info-text
+    - var eg = editgenres;
+    input#genres.form-control(value=eg, type='text', placeholder='Type genres here separated with comma')
+    .col-sm-12
+      button#submit-edit.btn.btn-info.inverted-button(type='submit') Update

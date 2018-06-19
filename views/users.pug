@@ -1,0 +1,26 @@
+extend layout
+
+block content
+  link(href='/stylesheets/bookshelf.css', rel='stylesheet', type='text/css')
+  .row.text-center
+    .col-sm-12
+      h1.h1.font-weight-bold.py-4 Stories by authors
+  .text-center
+    if users
+      each u in users
+        .bookself
+          a(href='/users/' + u.permalink)
+            h3.h3.font-weight-bold.text-light(title=u.username)= u.name.first+' '+u.name.last
+          ul.row
+            if u.stories
+              each story in u.stories
+                .col-sm
+                  a(href='/stories/' + story.permalink).v-book
+                    p.book-text.classic-title= story.title
+            if u.threads
+              each thread in u.threads
+                .col-sm  
+                  a(href='/stories/' + thread.permalink).thin-paper
+                    .paper-text
+                      p= thread.title
+        br

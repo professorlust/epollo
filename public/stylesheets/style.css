@@ -1,0 +1,253 @@
+/*
+ Colors:
+ #373737
+ #0E0B16
+ #A239CA
+ #4717F6
+ #E7DFDD
+
+ Main purples:
+ #58167D
+ #72408D
+ #A239CA
+*/
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  color: #101010;
+  font-family: "Roboto", sans-serif !important;
+  background-color: #FEFEFE;
+}
+
+input, button, a.btn, textarea {
+  border-radius: 1px !important;
+}
+
+@media screen and (max-width: 920px) {
+  .text-for-reading {
+    font-size: 18px !important;
+    overflow: scroll !important;
+  }
+
+  .read-div {
+    padding-top: 2% !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+
+  .input-form {
+    margin: 0 20% 0 20% !important;
+  }
+
+  .agreement {
+    padding: 5px 45px 5px 45px !important;
+  }
+}
+@media screen and (max-width: 520px) {
+  .text-for-reading {
+    font-size: 17px !important;
+    margin-top: 0% !important;
+    margin-bottom: 0% !important;
+  }
+
+  .read-div {
+    padding-top: 2% !important;
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+  }
+
+  .input-form {
+    margin: 0 !important;
+  }
+
+  .agreement {
+    padding: 3px 30px 3px 30px !important;
+  }
+}
+
+.btn-success {
+  background-color: #72408D;
+}
+
+.navbar {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.agreement {
+  padding: 10px 90px 10px 90px;
+}
+
+.bg-light {
+  background-color: #EAEAEA !important;
+  box-shadow: 0px 0px 5px #707070;
+}
+
+.main-title img {
+  width: 100px;
+  height: auto;
+}
+
+.main-title {
+  font-size: 25px;
+  font-family: "Merriweather", serif;
+  margin-right: 10px;
+  color: #A239CA !important;
+}
+.main-title:hover {
+  font-size: 25px;
+  font-family: "Merriweather", serif;
+  margin-right: 10px;
+  color: #4717F6 !important;
+}
+
+.dark-input {
+  background-color: #707070;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+a:hover {
+  text-decoration: none;
+  outline: none;
+}
+
+.rounded {
+  border-radius: 50px !important;
+}
+
+.settings-body {
+  padding-left: 15em;
+  padding-right: 15em;
+}
+
+.sm-img {
+  width: 420px;
+  height: auto;
+}
+
+.xs-img {
+  width: 210px;
+  height: auto;
+}
+
+.input-form {
+  margin: 2% 37% 0 37%;
+  box-shadow: 5px 5px 15px #424242;
+}
+
+.story-input {
+  padding: 1% 10% 1% 10%;
+}
+
+.read-div {
+  padding-top: 4%;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.text-for-reading {
+  font-size: 19px;
+  font-family: Georgia, "Times New Roman", serif;
+  overflow: visible;
+  overflow-wrap: break-word !important;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  width: auto;
+}
+
+input, textarea {
+  margin-bottom: 7px;
+}
+
+footer {
+  position: relative;
+  margin-top: 17em;
+  padding: 0 10vw 0 10vw;
+  width: 100%;
+  height: 40%;
+  bottom: 0;
+  font-size: 14px;
+  background-color: #EAEAEA;
+}
+
+footer a {
+  color: #A239CA !important;
+}
+
+footer a:hover {
+  color: #55344b !important;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  margin: 2vh 0 2vh 0;
+}
+
+.footer-details {
+  bottom: 0 !important;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-item h2, .carousel-item h4 {
+  text-shadow: 0 0 20px #373737, 0 0 20px #373737;
+}
+
+.bg-pics {
+  background-image: url('/images/bg-wood.png');
+}
+
+.like-btn {
+  font-size: 35px;
+  border-radius: 0;
+  color: #4717F6;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.like-btn:hover {
+  color: #A239CA;
+}
+
+.share-buttons {
+  font-size: 32px;
+  border-radius: 0;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.fa-facebook {
+  color: #3b5998;
+}
+.fa-facebook:hover {
+  color: #4c70ba;
+}
+.fa-google-plus-square {
+  color: #dd4b39;
+}
+.fa-google-plus-square:hover {
+  color: #e47365;
+}
+.fa-twitter {
+  color: #55acee;
+}
+.fa-twitter:hover {
+  color: #83c3f3;
+}
+.fa-envelope {
+    color: #44c456;
+}
+.fa-envelope:hover {
+    color: #6bd079;
+}

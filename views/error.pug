@@ -1,0 +1,16 @@
+extend layout
+
+block content
+  link(rel='stylesheet', type='text/css', href='/libs/error.css')
+  p.zoom-area(style='margin-top:100px;')
+    b Sorry 404, 
+    |  an error occurred.
+  section.error-container
+    span.four
+      span.screen-reader-text 4
+    span.zero
+      span.screen-reader-text 0
+    span.four
+      span.screen-reader-text 4
+  .link-container
+    a.btn.btn-success(href='/') Home

@@ -1,0 +1,64 @@
+extend layout
+
+block content
+  .py-5.px-5
+    h3.h3 Currently not available.
+    h4.h4.font-weight-bold For more possible actions please write an email to: 
+      a(href="mailto://martinkondor@gmail.com") martinkondor@gmail.com
+  .settings-body.py-5
+    if errors
+      each msg in errors
+        h6.alert.alert-warning.text-center= msg.msg
+    form(action='/users/' + user.username + '/settings/update/names', method='POST')
+      label First/Last name
+      .input-group
+        input.form-control(type='text' name='firstname' value= user.name.first)
+        input.form-control(type='text' name='lastname' value= user.name.last)
+        button(type="submit", disabled).btn.btn-info Save
+    form(action='/users/' + user.username + '/settings/update/username', method='POST').my-2
+      label Username
+      .input-group
+        input.form-control(name='username', type='text', value= user.username)
+        button(type="submit", disabled).btn.btn-info Save
+    form(action='/users/' + user.username + '/settings/update/email', method='POST').my-2
+      label Email
+      .input-group
+        input.form-control(name='email', type='email', value= user.email)
+        button(type="submit", disabled).btn.btn-info Save
+    form(action='/users/'+ user.username +'/settings/update/bio', method='post')
+      label Bio
+      .input-group
+        textarea.form-control(style='resize: none;', name='bio', type='text', rows='3', value= user.bio, placeholder='Tell others something about yourself!')
+        button(type="submit", disabled).btn.btn-info Save
+    if user.stories || user.threads
+      .text-center.my-5
+        ul(style='list-style:none;')
+          if user.stories
+            h3.h3 Stories
+            each story in user.stories
+              li.my-4
+                a(href='/stories/' + story.permalink)= story.title
+                span  - 
+                form(action='/stories/' + story.permalink + '/edit', method='get')
+                button(title="Edit", disabled).btn.btn-secondary.btn-sm
+                  i.far.fa-edit
+                span 
+                form(action='/stories/' + story.permalink + '/delete', method='post')
+                  button(title="Delete", disabled).btn.btn-danger.btn-sm
+                    i.fas.fa-trash
+        ul(style='list-style:none;')
+          if user.threads
+            h3.h3 Threads / Lines
+            each thread in user.threads
+              li.my-4
+                a(href='/stories/' + thread.permalink)= thread.title
+                span  - 
+                form(action='/stories/' + thread.permalink + '/edit', method='get')
+                button(title="Edit", disabled).btn.btn-secondary.btn-sm
+                  i.far.fa-edit
+                span 
+                form(action='/stories/' + thread.permalink + '/delete', method='post')
+                  button(title="Delete", disabled).btn.btn-danger.btn-sm
+                    i.fas.fa-trash
+                  
+    

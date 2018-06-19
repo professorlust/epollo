@@ -1,0 +1,105 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title= title
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(charset='UTF-8')
+    meta(name='description', content='Live through what you read. Get in the story. Decide what to do. Write a new story thread for stories from other authors, or write your own.')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='application-name', content='Epollo')
+    meta(name='keywords', content='epollo, story, stories, writing, write, writers, storyline, study, learn, share')
+    meta(name='description', content='Live through what you read. Get in the story. Decide what to do. Write a new story thread for stories from other authors, or write your own.')
+    link(rel='canonical', href='https://epollo.herokuapp.com/')
+    meta(property='og:url', content='https://epollo.herokuapp.com/')
+    meta(property='og:type', content='website')
+    meta(property='og:title', content= title)
+    meta(property='og:description', content='Live through what you read. Get in the story. Decide what to do. Write a new story thread for stories from other authors, or write your own.')
+    link(rel='icon', href='/images/logo/icon.png')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(defer='', src='https://use.fontawesome.com/releases/v5.0.8/js/all.js')
+    link(href='https://fonts.googleapis.com/css?family=Roboto|Merriweather|Merriweather:900', rel='stylesheet')
+    link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css', rel='stylesheet', type='text/css')
+    link(href='/stylesheets/style.css', rel='stylesheet', type='text/css')
+    script#cookieinfo(type='text/javascript', src='//cookieinfoscript.com/js/cookieinfo.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.18/angular-ui-router.min.js')
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.main-title(href='/')
+        img(src='/images/logo/title.png', title='Epollo', alt='Epollo')
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          if user
+            li.nav-item.dropdown
+              a#navbarDropdown.nav-link.dropdown-toggle.active(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')= user.name.first + ' ' + user.name.last
+              .dropdown-menu(aria-labelledby='navbarDropdown')
+                - var userLink = user.permalink;
+                a.dropdown-item(href='/users/' + userLink) 
+                  i.far.fa-user-circle
+                  |  Profile
+                a.dropdown-item(href='/users/' + userLink + '/settings') 
+                  i.fa.fa-cog
+                  |  Settings
+                .dropdown-divider
+                a.dropdown-item(href='/signout') 
+                  i.fas.fa-sign-out-alt
+                  |  Sign out
+            li.nav-item
+              a.nav-link(href='/newstory') Write
+          if !user
+            li.nav-item
+              a.nav-link(href='/signup') Sign Up
+            li.nav-item
+              a.nav-link(href='/signin') Sign In
+          li.nav-item.dropdown
+            a#navbarReadDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown',
+              aria-haspopup='true', aria-expanded='false') Read
+            .dropdown-menu(aria-labelledby='navbarReadDropdown')
+              a.dropdown-item(href='/stories') 
+                i.fas.fa-book
+                |  Browse
+              a.dropdown-item(href='/users') 
+                i.fa.fa-users
+                |  Authors
+        form(action='/stories/search', method='post', style='width:222px;').form-inline.mr-1.input-group
+          input.form-control(type='search', name='s', placeholder='Search', aria-label='Search', autocomplete='off', required)
+          span.input-group-append
+            button.btn.btn-outline-secondary(type='submit')
+              i.fas.fa-search
+    block content
+    footer
+      .row
+        .col-sm-4
+          ul
+            li.text-uppercase.text-muted.py-4 Brand
+            li 
+              a(href="/") About Epollo
+        .col-sm-4
+            ul
+              li.text-uppercase.text-muted.py-4 Features
+              li 
+                a(href="https://github.com/MartinKondor/epollo/projects") Plans &amp; Projects
+        .col-sm-4
+            ul
+              li.text-uppercase.text-muted.py-4 Support
+              li 
+                a(href="https://github.com/MartinKondor/epollo") Software developing
+              li 
+                a(href="mailto://martinkondor@gmail.com") Email: martinkondor@gmail.com
+      .footer-details.py-5
+        p.float-right
+          a(href='#') Back to top
+        p.float-left
+          a(href='https://github.com/MartinKondor/epollo/blob/master/LICENSE').text-muted &copy; 2018 Martin Kondor 
+          |  · 
+          a(href='https://github.com/MartinKondor/epollo') Contribute
+          |  · 
+          a(href='/info/#agreement') Terms of service
+          |  · 
+          a(href='/info/#privacy') Privacy

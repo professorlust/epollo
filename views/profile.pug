@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  link(href='/stylesheets/books.css', rel='stylesheet', type='text/css')
+  .row.px-5
+    .col-sm-6
+      p.py-4.h1.font-weight-bold= u.name.first + ' ' + u.name.last
+      p.h2.text-muted= u.username
+        |  | 
+        i(title='Stories').fas.fa-book
+        | 
+        span= u.stories.length
+        |  | 
+        i(title='Threads').far.fa-edit
+        | 
+        span= u.threads.length
+  br
+  .bookself.text-center
+    h3.h3.font-weight-bold.text-light Stories
+    ul.row.text-center.list-inline
+      if u.stories
+        each story in u.stories
+          .col-sm
+            a.book-link(href='/stories/' + story.permalink)
+              li.book(style='margin-bottom:120px;')
+                .c-book(style='overflow-wrap:break-word;background-color:' + story.color + ';')
+                  strong= story.title 
+  br
+  .bookself.text-center
+    h3.h3.font-weight-bold.text-light Threads
+    ul.row.text-center.list-inline
+      if u.threads
+        each thread in u.threads
+          .col-sm
+            a.book-link(href='/stories/' + thread.permalink)
+              li.book(style='margin-bottom:120px;')
+                .c-book(style='overflow-wrap:break-word;background-color:' + thread.color + ';')
+                  strong= thread.title 
+
+      
